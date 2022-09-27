@@ -56,10 +56,27 @@ namespace HomeWorks
 
             Console.WriteLine($"БОльшее из трёх чисел это: {numbers[numMaxIndex]}");
         }
+        static public void Task6()
+        {
+            int inputNum = 0, result = 0;
+
+            Console.WriteLine("================= Задача №6 =================");
+
+            Console.Write("Введите число: ");
+            inputNum = Convert.ToInt32(Console.ReadLine());
+
+            result = inputNum % 2;
+
+            if(result > 0)
+                Console.WriteLine($"Число {inputNum} - Нечётное");
+            else
+                Console.WriteLine($"Число {inputNum} - Чётное");
+        }
         static void Main(string[] args)
         {
             // Task2();
-            Task4();
+            // Task4();
+            Task6();
         }
     }
 }
