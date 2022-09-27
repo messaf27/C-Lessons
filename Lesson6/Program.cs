@@ -7,6 +7,8 @@ namespace HomeWorks
         {
             int numOne = 0, numTwo = 0;
 
+            Console.WriteLine("================= Задача №2 =================");
+
             Console.WriteLine("Введите первое число: ");
             numOne = Convert.ToInt32(Console.ReadLine());
 
@@ -30,11 +32,34 @@ namespace HomeWorks
                 Console.WriteLine("Вообще не понимаю, что происходит =)");
             }
         }
+        static public void Task4()
+        {
+            int numMaxIndex = 0;
+            int[] numbers = new int[3];
 
+            Console.WriteLine("================= Задача №4 =================");
+
+            Console.Write("Введите первое число: ");
+            numbers[0] = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Введите воторое число: ");
+            numbers[1] = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Введите третье число: ");
+            numbers[2] = Convert.ToInt32(Console.ReadLine());
+
+            for(int i = 0; i < 3; i++)
+            {
+                if(numbers[i] > numbers[numMaxIndex]) 
+                    numMaxIndex = i;
+            }
+
+            Console.WriteLine($"БОльшее из трёх чисел это: {numbers[numMaxIndex]}");
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine("================= Задача №2 =================");
-            Task2();
+            // Task2();
+            Task4();
         }
     }
 }
