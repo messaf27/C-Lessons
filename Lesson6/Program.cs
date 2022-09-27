@@ -72,11 +72,35 @@ namespace HomeWorks
             else
                 Console.WriteLine($"Число {inputNum} - Чётное");
         }
+        static public void Task8()
+        {
+            int inputNum = 0, result = 0, counter = 0;
+
+            Console.WriteLine("================= Задача №8* =================");
+
+            Console.Write("Введите число: ");
+            inputNum = Convert.ToInt32(Console.ReadLine());
+
+            if( inputNum % 2 > 0)
+                Console.WriteLine($"Число {inputNum} не является чётным!!!");
+            else
+            {
+                Console.Write($"Ряд четных чисел от 1 до {inputNum}: ");
+                while(counter < inputNum)
+                {
+                    counter++;
+                    result = counter % 2;
+                    if(result == 0)
+                    Console.Write($"{counter} "); 
+                }
+                Console.WriteLine();
+            }
+        }
         static void Main(string[] args)
         {
             // Task2();
             // Task4();
-            Task6();
+            Task8();
         }
     }
 }
