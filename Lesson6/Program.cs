@@ -48,9 +48,9 @@ namespace HomeWorks
             Console.Write("Введите третье число: ");
             numbers[2] = Convert.ToInt32(Console.ReadLine());
 
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                if(numbers[i] > numbers[numMaxIndex]) 
+                if (numbers[i] > numbers[numMaxIndex])
                     numMaxIndex = i;
             }
 
@@ -67,7 +67,7 @@ namespace HomeWorks
 
             result = inputNum % 2;
 
-            if(result > 0)
+            if (result > 0)
                 Console.WriteLine($"Число {inputNum} - Нечётное");
             else
                 Console.WriteLine($"Число {inputNum} - Чётное");
@@ -81,26 +81,109 @@ namespace HomeWorks
             Console.Write("Введите число: ");
             inputNum = Convert.ToInt32(Console.ReadLine());
 
-            if( inputNum % 2 > 0)
+            if (inputNum % 2 > 0)
                 Console.WriteLine($"Число {inputNum} не является чётным!!!");
             else
             {
                 Console.Write($"Ряд четных чисел от 1 до {inputNum}: ");
-                while(counter < inputNum)
+                while (counter < inputNum)
                 {
                     counter++;
                     result = counter % 2;
-                    if(result == 0)
-                    Console.Write($"{counter} "); 
+                    if (result == 0)
+                        Console.Write($"{counter} ");
                 }
                 Console.WriteLine();
+            }
+        }
+        static public void Task10()
+        {
+            int inputNum = 0, remNum = 0;
+
+            Console.WriteLine("================= Задача №10 =================");
+
+            Console.Write("Введите трёхзначное число: ");
+            inputNum = Convert.ToInt32(Console.ReadLine());
+
+            if ((inputNum < 100) || (inputNum > 999))
+            {
+                Console.WriteLine($"Число {inputNum} не является трёхзначным!!!");
+            }
+            else
+            {
+                remNum = (inputNum % 100) / 10;
+                Console.WriteLine($"Второе число: {remNum}");
+            }
+        }
+        static public void Task13()
+        {
+            int inputNum = 0, remNum = 0, divNum = 0;
+
+            Console.WriteLine("================= Задача №13 =================");
+
+            Console.Write("Введите число: ");
+            inputNum = Convert.ToInt32(Console.ReadLine());
+
+            if ((inputNum < 100) && (inputNum > 0))
+            {
+                Console.WriteLine($"Число {inputNum} не трёхзначное!!!");
+            }
+            else
+            if (inputNum == 0)
+            {
+                Console.WriteLine("Число должно быть больше нуля!!!");
+            }
+            else
+            {
+                divNum = 1;
+                remNum = inputNum;
+
+                int counter = 0;
+                while (remNum > 0)
+                {
+                    counter++;
+                    remNum = remNum / 10;
+
+                    if(counter > 3)
+                        divNum = 10 * divNum;
+                }
+
+                remNum = (inputNum / divNum) % 10;
+
+                // Console.WriteLine($"Всего цыфр в числе: {counter}, делитель: {divNum}");
+                Console.WriteLine($"Третье число: {remNum}");
+            }
+        }
+        static public void Task15()
+        {
+            int inputNum = 0;
+
+            Console.WriteLine("================= Задача №15 =================");
+
+            Console.Write("Введите номер дня недели: ");
+            inputNum = Convert.ToInt32(Console.ReadLine());
+
+            if((inputNum > 7) || (inputNum < 1))
+            {
+                Console.WriteLine($"День недели должен быть от 1 до 7 ");
+            }
+            else
+            if((inputNum > 5) && (inputNum < 8))
+            {
+                Console.WriteLine($"День недели №{inputNum} является ВЫХОДНЫМ днём!");
+            }
+            else
+            {
+                Console.WriteLine($"День недели №{inputNum} является РАБОЧИМ днём!");
             }
         }
         static void Main(string[] args)
         {
             // Task2();
             // Task4();
-            Task8();
+            // Task8();
+            // Task10();
+            Task15();
         }
     }
 }
