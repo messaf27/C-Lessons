@@ -177,13 +177,36 @@ namespace HomeWorks
                 Console.WriteLine($"День недели №{inputNum} является РАБОЧИМ днём!");
             }
         }
+        static public void Task19()
+        {
+            Console.WriteLine("================= Задача №19 =================");
+
+            Console.Write("Проверка числа на палиндромом. Введите число: ");
+            int inputValue = Convert.ToInt32(Console.ReadLine());
+            int reverseNum = 0, tempNum = 0;
+
+            tempNum = inputValue;
+            while(tempNum > 0) // (tempNum != 0) or (tempNum > 0)
+            {
+                reverseNum *= 10;
+                reverseNum = reverseNum + tempNum % 10;
+                tempNum = tempNum / 10; 
+            }
+
+            if(reverseNum == inputValue)
+                Console.WriteLine($"Число {inputValue} является палиндромом.");
+            else
+                Console.WriteLine($"Число {inputValue} не является палиндромом.");
+        }
         static void Main(string[] args)
         {
             // Task2();
             // Task4();
             // Task8();
             // Task10();
-            Task15();
+            // Task15();
+            Task19();
+
         }
     }
 }
