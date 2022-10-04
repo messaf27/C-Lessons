@@ -34,7 +34,6 @@ int GetMaxElementArray(int[] array)
         if (array[i] > array[maxIndex])
             maxIndex = i;
     }
-
     return array[maxIndex];
 }
 
@@ -48,12 +47,10 @@ int GetMinElementArray(int[] array)
         if (array[i] < array[minIndex])
             minIndex = i;
     }
-
     return array[minIndex];
 }
 
 Console.WriteLine("=========== Задача №38 ============= ");
-
 Console.Write("Введите количество элементов массива: ");
 
 int[] rndArray = CreateRandomArray(Convert.ToInt32(Console.ReadLine()), 1, 100);
