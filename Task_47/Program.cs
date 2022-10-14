@@ -8,15 +8,15 @@ m = 3, n = 4.
 
 Console.WriteLine("=========== Задача №47 ============= ");
 
-double[,] CreateRndArray2D(int m, int n, double rndMin, double rndMax)
+double[,] CreateRndDoubleArray2D(int m, int n, double rndMin, double rndMax)
 {
-    double[,] array = new int[m, n];
+    double[,] array = new double[m, n];
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i,j] = new Random().NextDouble(rndMin, rndMax + 1);    
+            array[i, j] = Math.Round(rndMin + new Random().NextDouble() * (rndMax - rndMin), 1);
         }
     }
 
@@ -32,11 +32,11 @@ void PrintArray2D(double[,] array)
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write($"{array[i, j]}");
-            if(j < (array.GetLength(1) - 1)) Console.Write(", ");
+            if (j < (array.GetLength(1) - 1)) Console.Write(", ");
         }
         Console.WriteLine("]");
     }
 }
 
-double[,] array2d =  CreateRndArray2D(10, 5, -99.0, 99.0);
+double[,] array2d = CreateRndDoubleArray2D(3, 4, -10.0, 10.0);
 PrintArray2D(array2d);
