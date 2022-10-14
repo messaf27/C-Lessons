@@ -13,7 +13,6 @@ Console.WriteLine("=========== Задача №52 ============= ");
 int[,] CreateRndArray2D(int row, int col, int rndMin, int rndMax)
 {
     int[,] array = new int[row, col];
-    Console.WriteLine($"Col = {col}, Row = {row}");
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -46,7 +45,7 @@ double GetAverageValueColArray(int[,] array, int colNum)
     double summ = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        summ +=  array[i, colNum];
+        summ += array[i, colNum];
     }
 
     return Math.Round(summ / array.GetLength(0), 1);
@@ -54,12 +53,12 @@ double GetAverageValueColArray(int[,] array, int colNum)
 
 int col = new Random().Next(5, 20);
 int row = new Random().Next(5, 20);
-int[,] array2d = CreateRndArray2D(col, row, 1, 10);
+int[,] array2d = CreateRndArray2D(row, col, 1, 10);
 
 Console.WriteLine($"Создан двухмерный массив размером: {array2d.GetLength(0)} х {array2d.GetLength(1)}");
 PrintArray2D(array2d);
 
-for (int i = 0; i < array2d.GetLength(1); i++)
+for (int column = 0; i < array2d.GetLength(1); column++)
 {
-    Console.WriteLine($"Среднее арифметическое столбца № {i}: {GetAverageValueColArray(array2d, i)}");
+    Console.WriteLine($"Среднее арифметическое столбца № {column}: {GetAverageValueColArray(array2d, column)}");
 }

@@ -12,7 +12,6 @@ Console.WriteLine("=========== Задача №50 ============= ");
 int[,] CreateRndArray2D(int row, int col, int rndMin, int rndMax)
 {
     int[,] array = new int[row, col];
-    Console.WriteLine($"Col = {col}, Row = {row}");
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -21,7 +20,7 @@ int[,] CreateRndArray2D(int row, int col, int rndMin, int rndMax)
             array[i, j] = new Random().Next(rndMin, rndMax + 1);
         }
     }
-
+    
     return array;
 }
 
@@ -29,7 +28,6 @@ void PrintArray2D(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        // Console.Write($"({i})[");
         Console.Write("[");
         for (int j = 0; j < array.GetLength(1); j++)
         {
@@ -42,7 +40,7 @@ void PrintArray2D(int[,] array)
 
 int col = new Random().Next(1, 10);
 int row = new Random().Next(1, 10);
-int[,] array2d = CreateRndArray2D(col, row, 10, 99);
+int[,] array2d = CreateRndArray2D(row, col, 10, 99);
 
 // int[,] array2d = new int [,] { { 0, 1, 2 }, { 3, 4, 5 } };
 
