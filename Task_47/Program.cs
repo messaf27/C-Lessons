@@ -8,9 +8,9 @@ m = 3, n = 4.
 
 Console.WriteLine("=========== Задача №47 ============= ");
 
-double[,] CreateRndDoubleArray2D(int m, int n, double rndMin, double rndMax)
+double[,] CreateRndDoubleArray2D(int row, int col, double rndMin, double rndMax)
 {
-    double[,] array = new double[m, n];
+    double[,] array = new double[row, col];
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
