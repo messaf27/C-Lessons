@@ -58,7 +58,7 @@ int[,] array2d = CreateRndArray2D(row, col, 1, 10);
 Console.WriteLine($"Создан двухмерный массив размером: {array2d.GetLength(0)} х {array2d.GetLength(1)}");
 PrintArray2D(array2d);
 
-for (int column = 0; i < array2d.GetLength(1); column++)
+for (int column = 0; column < array2d.GetLength(1); column++)
 {
     Console.WriteLine($"Среднее арифметическое столбца № {column}: {GetAverageValueColArray(array2d, column)}");
 }
