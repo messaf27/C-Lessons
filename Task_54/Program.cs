@@ -76,7 +76,7 @@ void SortArray(int[] array)
     {
         for (int j = 0; j < array.Length - i - 1; j++)
         {
-            if (array[j] > array[j + 1])
+            if (array[j] < array[j + 1])
             {
                 int val = array[j];
                 array[j] = array[j + 1];
