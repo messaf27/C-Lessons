@@ -40,17 +40,33 @@ void PrintArray2D(int[,] array)
     }
 }
 
-int[,] SortLineNumArray2D(int[,] array, int line)
+int[,] SortLineNumArray2D(int[,] array)
 {
-    for (int i = 1; i < array.GetLength(1) - 1; i++)
+    // for (int i = 1; i < array.GetLength(1) - 1; i++)
+    // {
+    //     for (int j = 0; j < array.GetLength(1) - i - 1; j++)
+    //     {
+    //         if (array[line, j] > array[line, j + 1])
+    //         {
+    //             int val = array[line, j];
+    //             array[line, j] = array[line, j + 1];
+    //             array[line, j + 1] = val;
+    //         }
+    //     }
+    // }
+
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1) - i - 1; j++)
+        for (int j = 0; j > array.GetLength(1); j++)
         {
-            if (array[line, j] > array[line, j + 1])
+            for (int k = 0; k < array.GetLength(1); k++)
             {
-                int val = array[line, j];
-                array[line, j] = array[line, j + 1];
-                array[line, j + 1] = val;
+                if (array[i, k] < array[i, k - 1])
+                {
+                    int val = array[i, k - 1];
+                    array[i, k - 1] = array[i, k];
+                    array[i, k] = val;
+                }           
             }
         }
     }
@@ -100,12 +116,8 @@ Console.WriteLine($"Создан двухмерный массив размер�
 PrintArray2D(array2d);
 
 Console.WriteLine("Сортировка строк по убыванию:");
-for (int i = 0; i < array2d.GetLength(0); i++)
-{
-    SortLineNumArray2D(array2d, i);
 
-}
-PrintArray2D(array2d);
+PrintArray2D(SortLineNumArray2D(array2d));
 
 // SortLineNumArray2D(array2d, 0);
 
