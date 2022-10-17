@@ -42,41 +42,15 @@ void PrintArray2D(int[,] array)
 
 int[,] SortLineNumArray2D(int[,] array, int line)
 {
-    // for (int i = array.GetLength(1) - 1; i + 1 > 0; i--)
-    // {
-    //     Console.WriteLine($"index: {i} = {array[line, i]}");
-
-    //     if(i > 0)
-    //     {
-    //         if (array[line, i - 1] > array[line, i])
-    //         {
-    //             int temp = array[line, i - 1];
-    //             array[line, i - 1] = array[line, i];
-    //             array[line, i] = temp;
-    //         }
-    //     }
-    // }
-
-    // for (int i = 0; i < length; i++)
-    // {
-
-    // }
-
-
-    for (int i = 0; i < array.GetLength(1); i++)
+    for (int i = 1; i < array.GetLength(1) - 1; i++)
     {
-        if ((i + 1) < array.GetLength(1))
+        for (int j = 0; j < array.GetLength(1) - i - 1; j++)
         {
-            Console.WriteLine($"i: {i} = {array[line, i]}");
-            Console.WriteLine($"i+1: {i + 1} = {array[line, i + 1]}");
-
-            if (array[line, i] < array[line, i + 1])
+            if (array[line, j] > array[line, j + 1])
             {
-                Console.WriteLine($"if({array[line, i]} < {array[line, i + 1]})");
-
-                int temp = array[line, i + 1];
-                array[line, i + 1] = array[line, i];
-                array[line, i] = temp;
+                int val = array[line, j];
+                array[line, j] = array[line, j + 1];
+                array[line, j + 1] = val;
             }
         }
     }
@@ -84,33 +58,57 @@ int[,] SortLineNumArray2D(int[,] array, int line)
     return array;
 }
 
-void SortArray()
+void ArrayPrint(int[] array)
 {
-    int[] array = new int[] { 1, 4, 6, 2, 9 };// 96421
-
-    for (int i = 0; i < array.Length; i++)
+    Console.Write("[");
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        Console.WriteLine($"[{i}] = {array[i]}");
+        Console.Write($"{array[i]}");
+        if (i < (array.GetLength(0) - 1)) Console.Write(", ");
     }
+    Console.WriteLine("]");
+}
+
+
+void SortArray(int[] array)
+{
+    for (int i = 1; i < array.Length - 1; i++)
+    {
+        for (int j = 0; j < array.Length - i - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                int val = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = val;
+            }
+        }
+    }
+    ArrayPrint(array);
 }
 
 
 Console.WriteLine("=========== Задача №54 ============= ");
-// int col = new Random().Next(5, 20);
-// int row = new Random().Next(5, 20);
-// int[,] array2d = CreateRndArray2D(row, col, 1, 10);
-int[,] array2d = CreateRndArray2D(5, 5, 1, 10);
+int[] array = new int[] { 1, 4, 6, 2, 9 };// 96421
+
+int col = new Random().Next(5, 20);
+int row = new Random().Next(5, 20);
+int[,] array2d = CreateRndArray2D(row, col, 1, 10);
+// int[,] array2d = CreateRndArray2D(5, 5, 1, 10);
 
 Console.WriteLine($"Создан двухмерный массив размером: {array2d.GetLength(0)} х {array2d.GetLength(1)}");
 PrintArray2D(array2d);
 
 Console.WriteLine("Сортировка строк по убыванию:");
-// for (int i = 0; i < array2d.GetLength(0); i++)
-// {
-//     SortLineNumArray2D(array2d, i);
+for (int i = 0; i < array2d.GetLength(0); i++)
+{
+    SortLineNumArray2D(array2d, i);
 
-// }
-
-SortLineNumArray2D(array2d, 0);
+}
 PrintArray2D(array2d);
-// SortArray();
+
+// SortLineNumArray2D(array2d, 0);
+
+
+// ArrayPrint(array);
+// SortArray(array);
