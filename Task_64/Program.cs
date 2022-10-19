@@ -12,20 +12,27 @@ int N = 0;
 Console.Write("Введите N: ");
 N = Convert.ToInt32(Console.ReadLine());
 
-Console.Write($"{N}->");
-for(int i = N; i > 0; i--)
+int GetNext(int n)
 {
-    Console.Write($"{i}");
-    if(i > 1) Console.Write(", ");
+    Console.Write($"{n}");
+    if(n > 1) Console.Write(", ");
+
+    if(n == 1) return 1;
+    
+    return GetNext(n  - 1);
 }
+
+Console.Write($"{N}->"); GetNext(N);
 
 /*
 Terminal:
+PS D:\VSCodeProjects\C#-GB\Task_64> dotnet run
 =========== Задача №64 ============= 
 Введите N: 5
 5->5, 4, 3, 2, 1
-
+PS D:\VSCodeProjects\C#-GB\Task_64> dotnet run
 =========== Задача №64 ============= 
 Введите N: 10
 10->10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+PS D:\VSCodeProjects\C#-GB\Task_64> 
 */
