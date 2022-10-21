@@ -11,20 +11,34 @@
 int[,,] CreateUniqArray3D(int x, int y, int z, int rndMin, int rndMax)
 {
     int[,,] arr = new int[x, y, z];
-    int currentRndNum = 0, lastRndNum = 0;
+    int currentRndNum = 0;
 
-    for (int i = 0; i < arr.GetLength(0); i++)
+    if ((rndMax - rndMin) < x * y * z)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        Console.WriteLine("Невозможно заполнить массив уникальными данными, поменяйте диапозон генерации!");
+        Console.WriteLine($"Дапозон генерации: {rndMax - rndMin}, Размер массива: {x * y * z}");
+    }
+    else
+    {
+        for (int i = 0; i < arr.GetLength(0); i++)
         {
-            for (int k = 0; k < arr.GetLength(2); k++)
+            for (int j = 0; j < arr.GetLength(1); j++)
             {
-                while (currentRndNum == lastRndNum)
+                for (int k = 0; k < arr.GetLength(2); k++)
                 {
                     currentRndNum = new Random().Next(rndMin, rndMax + 1);
+
+                    for (int m = 0; m < k + 1; m++)
+                    {
+                        if (arr[i, j, m] == currentRndNum)
+                        {
+                            currentRndNum = new Random().Next(rndMin, rndMax + 1);
+                            Console.WriteLine("Совпадение!!!");
+                        }
+                    }
+
+                    arr[i, j, k] = currentRndNum;
                 }
-                arr[i, j, k] = currentRndNum;
-                lastRndNum = currentRndNum;
             }
         }
     }
@@ -48,7 +62,7 @@ void PrintArray3D(int[,,] arr)
 }
 
 Console.WriteLine("=========== Задача №60 ============= ");
-int[,,] array3d = CreateUniqArray3D(5, 5, 5, 10, 99);
+int[,,] array3d = CreateUniqArray3D(5, 5, 5, 1, 150);
 PrintArray3D(array3d);
 
 /*
