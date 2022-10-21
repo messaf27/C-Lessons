@@ -36,7 +36,6 @@ int[,,] CreateUniqArray3D(int x, int y, int z, int rndMin, int rndMax)
                             Console.WriteLine("Совпадение!!!");
                         }
                     }
-
                     arr[i, j, k] = currentRndNum;
                 }
             }
