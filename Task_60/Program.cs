@@ -30,7 +30,7 @@ int[,,] CreateUniqArray3D(int x, int y, int z, int rndMin, int rndMax)
 
                     for (int m = 0; m < k + 1; m++)
                     {
-                        if (arr[i, j, m] == currentRndNum)
+                        while (arr[i, j, m] == currentRndNum)
                         {
                             currentRndNum = new Random().Next(rndMin, rndMax + 1);
                             Console.WriteLine("Совпадение!!!");
